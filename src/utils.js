@@ -31,7 +31,10 @@ export function checkCarNames(splitedNames) {
 }
 
 export function checkRacingCount(racingCount) {
-	if (racingCount) {
-
+	if (/^\d+$/.test(racingCount) === false) {
+		return false;
+	}
+	else if (+racingCount <= 0) {
+		return false;
 	}
 }
