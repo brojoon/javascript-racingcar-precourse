@@ -1,5 +1,5 @@
-class Car {
-  constructor(name) {
-    this.name = name;
-  }
+import { initDOM } from './utils';
+
+export default function RacingCar() {
+	const domElements = initDOM();
 }
