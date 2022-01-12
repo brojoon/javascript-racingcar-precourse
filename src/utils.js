@@ -11,3 +11,10 @@ export function initDOM() {
 		racingCountSubmit: document.querySelector('#racing-count-submit'),
 	}
 }
+
+export function checkCarNames(splitedNames) {
+	for (const Name of splitedNames) {
+		if (Name.length > 5) return false;
+	}
+	return true;
+}
