@@ -1,17 +1,30 @@
-import { initDOM, checkCarNames } from './utils';
+import { checkCarNames, checkRacingCount, initDOM } from './utils.js';
 
 export default function RacingCar() {
-	const domElements = initDOM();
+
 	const ERROR = '🚨 입력이 잘못되었습니다! 🚨';
 	let splitedCarNames = "";
+	let racingCount = 0;
+	
+	
+	const domElements = initDOM();
 
-	function onSubmitCarNames() {
-		splitedCarNames = domElements.carNamesInput.splite(',');
+	function onSubmitCarNames(e) {
+		e.preventDefault();
+		splitedCarNames = domElements.carNamesInput.value.split(',');
 		if (!checkCarNames(splitedCarNames)) {
 			alert(ERROR);
 			return;
 		}
-		
+	}
+
+	function onSubmitRacingCount(e) {
+		e.preventDefault();
+		racingCount = domElements.racingCountInput.value;
+		if (!checkRacingCount(racingCount)) {
+			alert(ERROR);
+			return;
+		}
 	}
 
 
@@ -19,3 +32,5 @@ export default function RacingCar() {
 	domElements.carNamesSubmit.addEventListener('click', onSubmitCarNames)
 	domElements.racingCountSubmit.addEventListener('click', onSubmitRacingCount)
 }
+
+RacingCar();
