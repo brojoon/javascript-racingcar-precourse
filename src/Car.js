@@ -1,18 +1,24 @@
-class Car {
+export default class Car {
   constructor(name) {
     this.name = name;
-    this.score = 0;
+    this.score = '';
   }
 
-  get score() {
+  score() {
     return this.score;
   }
-  
-  run() {
-    if (Random.pickNumberInRange(0, 9) > 4) {
-      this.score += 1;
-    }
+
+  name() {
+    return this.name;
   }
 
+  makeStatus() {
+    return `${this.name}: ${this.score}`;
+  }
 
+  run() {
+    if (MissionUtils.Random.pickNumberInRange(0, 9) > 4) {
+      this.score += '-';
+    }
+  }
 }
