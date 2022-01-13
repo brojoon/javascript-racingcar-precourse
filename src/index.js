@@ -1,4 +1,4 @@
-import { checkCarNames, checkRacingCount, initDOM } from './utils.js';
+import { checkCarNames, checkRacingCount, initDOM, Car } from './utils.js';
 
 export default function RacingCar() {
 
@@ -25,6 +25,7 @@ export default function RacingCar() {
 			alert(ERROR);
 			return;
 		}
+
 	}
 
 
