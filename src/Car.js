@@ -5,7 +5,7 @@ export default class Car {
   }
 
   getScore() {
-    return `${this.score.length}`;
+    return this.score.length;
   }
 
   getName() {

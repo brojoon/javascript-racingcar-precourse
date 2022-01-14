@@ -42,19 +42,13 @@ export function showRacing(RacingCars, racingPlayResult, isEnd) {
 }
 
 export function showRacingWinner(RacingCars, racingPlayResult,) {
-	let max = 0;
-	const carNames = [];
+	let maxScore;
+	let carNames;
 	let wiinerString = "";
-	RacingCars.forEach((car) => {
-		if (+car.getScore() > max) {
-			max = +car.getScore();
-		}
-	})
-	RacingCars.forEach((car) => {
-		if (+car.getScore() == max) {
-			carNames.push(car.getName());
-		}
-	})
+	
+	RacingCars.sort((a, b) => b.getScore() - a.getScore());
+	maxScore = RacingCars[0].getScore();
+	carNames = RacingCars.filter((car) => car.getScore() === maxScore).map((car) => car.getName());
 	appendChildNode(`#${racingPlayResult.id}`, 'br', '', '');
 	appendChildNode(`#${racingPlayResult.id}`, 'span',  '#racing-winners', `최종 우승자: ${carNames.join(', ')}`);
 }
