@@ -1,18 +1,23 @@
+import { ERROR_MESSAGE  } from './error_config.js';
 import Car from "./Car.js";
 
 export function checkCarNames(splitedNames) {
 	if (splitedNames.length === 1) {
+		alert(ERROR_MESSAGE.namesOnlyOne);
 		return false;
 	}
 	for (const Name of splitedNames) {
 		if (Name.length > 5) {
+			alert(ERROR_MESSAGE.nameTooLong);
 			return false;
 		} else if (Name.replace(/ /g, "").length !== Name.length) {
+			alert(ERROR_MESSAGE.namesHasBlank);
 			return false;
 		}
 	}
 	const setCarName = new Set(splitedNames);
 	if (setCarName.size !== splitedNames.length) {
+		alert(ERROR_MESSAGE.namesRedundant);
 		return false;
 	}
 	return true;
@@ -20,11 +25,9 @@ export function checkCarNames(splitedNames) {
 
 export function checkRacingCount(racingCount) {
 	if (/^\d+$/.test(racingCount) === false) {
-		console.log('1');
 		return false;
 	}
 	else if (+racingCount <= 0) {
-		console.log('2');
 		return false;
 	}
 	return true;
@@ -37,3 +40,4 @@ export function createCars(racingCount, splitedCarNames) {
 	}
 	return RacingCars;
 }
+

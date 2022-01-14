@@ -46,8 +46,7 @@ export function showRacingWinner(RacingCars, racingPlayResult,) {
 	let carNames;
 	let wiinerString = "";
 	
-	RacingCars.sort((a, b) => b.getScore() - a.getScore());
-	maxScore = RacingCars[0].getScore();
+	maxScore = Math.max(...RacingCars.map((car) => car.getScore()));
 	carNames = RacingCars.filter((car) => car.getScore() === maxScore).map((car) => car.getName());
 	appendChildNode(`#${racingPlayResult.id}`, 'br', '', '');
 	appendChildNode(`#${racingPlayResult.id}`, 'span',  '#racing-winners', `최종 우승자: ${carNames.join(', ')}`);

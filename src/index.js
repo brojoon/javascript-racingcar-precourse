@@ -29,7 +29,6 @@ export default function RacingCar() {
 		e.preventDefault();
 		splitedCarNames = domElements.carNamesInput.value.split(',');
 		if (!checkCarNames(splitedCarNames)) {
-			alert(ERROR);
 			return;
 		}
 		visibileNode(domElements.racingPlayCount, 'block');
