@@ -4,12 +4,12 @@ export default class Car {
     this.score = '';
   }
 
-  score() {
-    return this.score;
+  getScore() {
+    return `${this.score.length}`;
   }
 
-  name() {
-    return this.name;
+  getName() {
+    return `${this.name}`;
   }
 
   makeStatus() {
