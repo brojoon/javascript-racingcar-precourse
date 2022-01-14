@@ -1,5 +1,5 @@
-import { checkCarNames, checkRacingCount, initDOM, createCars, showRacing, showRacingWinner, appendNextNode, hideNodes, visibileNode} from './utils.js';
-
+import { checkCarNames, checkRacingCount, createCars} from './utils.js';
+import {initDOM, showRacing, showRacingWinner, appendNextNode, hideNodes, visibileNode} from './DOM_utils.js';
 export default function RacingCar() {
 
 	const ERROR = '🚨 입력이 잘못되었습니다! 🚨';
