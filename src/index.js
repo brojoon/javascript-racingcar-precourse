@@ -1,4 +1,4 @@
-import { checkCarNames, checkRacingCount, initDOM, createCars, showRacing, showRacingWinner, appendNextNode} from './utils.js';
+import { checkCarNames, checkRacingCount, initDOM, createCars, showRacing, showRacingWinner, appendNextNode, hideNodes, visibileNode} from './utils.js';
 
 export default function RacingCar() {
 
@@ -8,6 +8,7 @@ export default function RacingCar() {
 	
 	
 	const domElements = initDOM();
+	hideNodes(domElements);
 
 	this.play = function (RacingCars) {
 		appendNextNode(`#${domElements.racingPlayResult.id}`, 'div', 'racing-result-list', '');
@@ -31,16 +32,19 @@ export default function RacingCar() {
 			alert(ERROR);
 			return;
 		}
+		visibileNode(domElements.racingPlayCount, 'block');
+		visibileNode(domElements.racingCountInput, 'inline');
+		visibileNode(domElements.racingCountSubmit, 'inline');
 	}
 
 	function onSubmitRacingCount(e) {
 		e.preventDefault();
-		console.log('0');
 		racingCount = domElements.racingCountInput.value;
 		if (!checkRacingCount(racingCount)) {
 			alert(ERROR);
 			return;
 		}
+		visibileNode(domElements.racingPlayResult, 'block');
 		const RacingCars = createCars(racingCount, splitedCarNames);
 		this.play(RacingCars);
 	}

@@ -98,3 +98,14 @@ export function showRacingWinner(RacingCars, racingPlayResult,) {
 	appendChildNode(`#${racingPlayResult.id}`, 'br', '', '');
 	appendChildNode(`#${racingPlayResult.id}`, 'span',  '#racing-winners', `최종 우승자: ${carNames.join(', ')}`);
 }
+
+export function hideNodes(domElements) {
+	domElements.racingCountInput.style.display = 'none';
+	domElements.racingCountSubmit.style.display = 'none';
+	domElements.racingPlayCount.style.display = 'none';
+	domElements.racingPlayResult.style.display = 'none';
+}
+
+export function visibileNode(domElement, type) {
+	domElement.style.display = type;
+}
